@@ -286,7 +286,7 @@
                     </select>
                  </div>
                  
-                 <div class="mb-3">
+                 <div class="mb-3 d-none" id="divCidades">
                     <label for="cidades" class="form-label">Cidades</label>
                     <select
                         class="form-select form-select-lg"
@@ -362,7 +362,7 @@
                 .catch(erro => alert(erro));
         })();
 
-        // Função para listar as cidades
+        // Função para listar as cidades - executada ao selecionar um estado
         const listarCidades = ()=>{
             // constante para capturar o select de estados
             const estados = document.getElementById('estados');
@@ -386,6 +386,12 @@
                 // preenche o select de cidades com o conteúdo da variável options
                 cidades.innerHTML = options;
             }).catch(erro => alert(erro));
+
+            /* Mostra a div cidade se o estado for selecionado */
+            /* remove a classe d-none da divCidades */
+            const divCidades = document.getElementById('divCidades');
+            elemento.classlist.remove('d-none');
+
         }
 
 
